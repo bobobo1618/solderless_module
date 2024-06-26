@@ -8,7 +8,7 @@
 
 / {
 	chosen {
-        cirque,pinnacle-spi = &cirque;
+        cirque,pinnacle-spi = &glidepoint;
 	};
 };
 
@@ -30,7 +30,7 @@ nice_view_spi: &spi0 {
 
 	cs-gpios = <&gpio0 17 GPIO_ACTIVE_HIGH>, <&gpio0 22 GPIO_ACTIVE_LOW>;
 
-    cirque: pinnacle@1 {
+    glidepoint: glidepoint@1 {
         compatible = "cirque,pinnacle";
 		status = "okay";
         rotate-90;
@@ -45,9 +45,6 @@ nice_view_spi: &spi0 {
 / {
     cirque_listener {
       compatible = "zmk,input-listener";
-      device = <&cirque>;
-      y-invert;
-      scale-multiplier = <3>;
-      scale-divisor = <1>;
+      device = <&glidepoint>;
     };
   };
