@@ -13,7 +13,7 @@
 
     EXT_POWER {
         control-gpios = <&gpio0 29 GPIO_ACTIVE_LOW>;
-    }
+    };
 };
 
 &default_transform {
