@@ -16,6 +16,10 @@
         zephyr,display = &nice_view;
 	};
 
+    EXT_POWER {
+        control-gpios = <&gpio0 29 GPIO_ACTIVE_LOW>;
+    };
+
 	default_transform: keymap_transform_0 {
 		compatible = "zmk,matrix-transform";
 		columns = <10>;
