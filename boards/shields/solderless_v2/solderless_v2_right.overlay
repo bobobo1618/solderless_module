@@ -8,8 +8,12 @@
 
 / {
 	chosen {
-        cirque,pinnacle-spi = &glidepoint;
+        cirque,pinnacle-spi = &cirque;
 	};
+
+    EXT_POWER {
+        control-gpios = <&gpio0 29 GPIO_ACTIVE_LOW>
+    }
 };
 
 &default_transform {
@@ -30,21 +34,21 @@ nice_view_spi: &spi0 {
 
 	cs-gpios = <&gpio0 17 GPIO_ACTIVE_HIGH>, <&gpio0 22 GPIO_ACTIVE_LOW>;
 
-    glidepoint: glidepoint@1 {
+    cirque: pinnacle@1 {
         compatible = "cirque,pinnacle";
 		status = "okay";
         rotate-90;
         sleep;
         reg = <1>;
         spi-max-frequency = <1000000>;
-        dr-gpios = <&gpio1 7 GPIO_ACTIVE_HIGH>;
-        sensitivity = "2x";
+        dr-gpios = <&gpio0 2 GPIO_ACTIVE_HIGH>;
+        sensitivity = "1x";
     };
 };
 
 / {
     cirque_listener {
       compatible = "zmk,input-listener";
-      device = <&glidepoint>;
+      device = <&cirque>;
     };
   };
